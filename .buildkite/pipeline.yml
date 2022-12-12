@@ -10,8 +10,7 @@ steps:
           files:
             - hooks/*
             - buildkite/*.sh
-
-  steps:
+            
   - label: ":eslint:"
     command: "npm run lint"
     plugins:
