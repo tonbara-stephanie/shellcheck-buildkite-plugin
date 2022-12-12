@@ -11,7 +11,9 @@ steps:
             - hooks/*
             - buildkite/*.sh
 
-  - label: ":sparkles: lint"
+  steps:
+  - label: ":eslint:"
+    command: "npm run lint"
     plugins:
-      - plugin-linter#v3.0.0:
-          id: shellcheck
+      - docker-compose#v3.10.0:
+          run: linter
