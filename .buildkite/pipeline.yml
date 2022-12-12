@@ -2,9 +2,8 @@ steps:
   - label: run bats tests
     plugins:
       - docker-compose#v4.5.0:
-          files:
-            - test/*
-
+          run: tests
+          
   - label: run shellcheck
     plugins:
       - shellcheck#${BUILDKITE_COMMIT}:
