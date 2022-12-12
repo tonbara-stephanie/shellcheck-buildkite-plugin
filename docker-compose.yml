@@ -1,6 +1,17 @@
-version: '2'
+version: '3.4'
 services:
   tests:
     image: buildkite/plugin-tester:v3.0.1
     volumes:
       - .:/plugin
+   
+  linter:
+    build:
+      context: .
+      target: dev
+    volumes:
+      # Mount these in so we pick up edits in dev, without having to re-build
+      - "./bin:/src/bin"
+      - "./lib:/src/lib"
+      - "./test:/src/test"
+    command: npm test
